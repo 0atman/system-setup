@@ -55,7 +55,7 @@ installfile()
 
     # If we're to source it
     elif [ -e $installname ] && [ $source ]; then
-        echo "source $localname; #nottrobin-shellconfig" >> $installname && echo " - Sourced from .shellconfig";
+        echo "source $localname; #0atman-shellconfig" >> $installname && echo " - Sourced from .shellconfig";
 
     # Exists but not sourceable
     elif [ -e $installname ]; then
@@ -78,8 +78,8 @@ for filename in '.tmux.conf' '.vim' '.bazaar'; do
     installfile $filename && echo " - == Installed $filename";
 done
 
-# Source bash files
-for filename in '.bashrc' '.bash_profile'; do
+# Source zshrc files
+for filename in '.zshrc'; do
     installfile $filename $filename true && echo " - == Installed $filename";
 done
 
