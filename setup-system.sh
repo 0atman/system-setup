@@ -14,6 +14,7 @@ function apt_always_yes() {
 # Download and install Google Chrome, as best we know how
 function install_chrome() {
     echo "~ Installing Google Chrome's dependencies"
+    sudo apt-get update
     sudo apt-get install libxss1 libappindicator1 libindicator7
     echo "~ Downloading google chrome .deb package"
     sudo wget -P /tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
