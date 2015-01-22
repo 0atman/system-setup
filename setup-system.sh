@@ -1,5 +1,10 @@
 set -e
 
+# do an update to start things off
+function apt_update() {
+    sudo apt-get update
+}
+
 # Add a new apt config setting
 # to make it always install package dependencies
 # without prompting "are you sure?"
@@ -80,7 +85,7 @@ function setup_user_config() {
     fi
 }
 
-run_functions="apt_always_yes install_chrome install_sublime_3 install_apt_packages setup_ssh_key setup_user_config"
+run_functions="apt_update apt_always_yes install_chrome install_sublime_3 install_apt_packages setup_ssh_key setup_user_config"
 
 for function_name in ${run_functions}; do
     while true; do
