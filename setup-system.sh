@@ -56,7 +56,7 @@ function setup_ssh_key() {
         cat ${HOME}/.ssh/id_rsa.pub
         echo -e "\nPlease copy it into:"
         echo -e "- Github (https://github.com/settings/ssh)"
-        echo -e "- Launchpad (e.g.: https://launchpad.net/~nottrobin/+editsshkeys)"
+        echo -e "- Launchpad (e.g.: https://launchpad.net/~0atman/+editsshkeys)"
     fi
 }
 
@@ -70,8 +70,8 @@ function setup_user_config() {
                 read -p "Clone the system setup repository into ~/system-setup ? [Y/n] " clone_it
                 case $clone_it in
                     [Nn]* ) break;;
-                    * ) git clone git@github.com:nottrobin/system-setup.git ${HOME}/system-setup \
-                        || git clone https://github.com/nottrobin/system-setup.git ${HOME}/system-setup;
+                    * ) git clone git@github.com:0atman/system-setup.git ${HOME}/system-setup \
+                        || git clone https://github.com/0atman/system-setup.git ${HOME}/system-setup;
                         ${HOME}/system-setup/setup-user-config.sh;
                         break;;
                 esac
