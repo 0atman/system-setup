@@ -9,7 +9,7 @@ Usage
 To run the basic setup script directly:
 
 ``` bash
-bash -c "$(wget -q -O - https://raw.githubusercontent.com/nottrobin/system-setup/master/setup-system.sh)"
+bash -c "$(wget -q -O - https://raw.githubusercontent.com/0atman/system-setup/master/setup-system.sh)"
 ```
 
 Available scripts
@@ -24,8 +24,6 @@ Available scripts
 Config files
 ---
 
-- .bash_functions.sh - a collection of useful functions for setting up my bash shell
-- .bashrc - setup the bash shell, by loading some of the bash functions
 - .vim - my vim setup - including syntax highlighting and other tweaks
 - .tmux.conf - My setup for tmux, the "better than screen" terminal multiplexer
 - .bash_profile - mostly empty. Just makes sure .bashrc gets run.
