@@ -14,8 +14,8 @@ function apt_always_yes() {
 # Download and install Google Chrome, as best we know how
 function install_chrome() {
     echo "~ Installing Google Chrome's dependencies"
-    sudo apt-get update
-    sudo apt-get install libxss1 libappindicator1 libindicator7
+    sudo apt update
+    sudo apt install libxss1 libappindicator1 libindicator7
     echo "~ Downloading google chrome .deb package"
     sudo wget -P /tmp https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
     echo "~ Installing downloaded package"
@@ -33,7 +33,7 @@ function install_sublime_3() {
 # Install apt packages in the list
 # Prompting each time 
 function install_apt_packages() {
-    install_packages="git python-dev vim byobu ack-grep bzr zsh curl"
+    install_packages="git python-dev vim byobu ack-grep bzr zsh curl i3"
 
     for package in ${install_packages}; do
         while true; do
@@ -48,7 +48,8 @@ function install_apt_packages() {
 
 # Install oh my zsh
 function install_oh_my_zsh() {
-    wget --no-check-certificate http://install.ohmyz.sh -O - | sh
+    wget --no-check-certificate http://install.ohmyz.sh -O - | sh && true # this script always returns non-zero
+    chsh -s /usr/bin/zsh
 }
 
 # Generate a new SSH key, to be copied into Github (at the very least)
@@ -86,7 +87,7 @@ function setup_user_config() {
     fi
 }
 
-run_functions="apt_always_yes install_chrome install_sublime_3 install_apt_packages install_oh_my_zsh setup_ssh_key setup_user_config"
+run_functions="apt_always_yes install_chrome install_sublime_3 install_apt_packages setup_ssh_key setup_user_config install_oh_my_zsh "
 
 for function_name in ${run_functions}; do
     while true; do
