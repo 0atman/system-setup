@@ -33,7 +33,7 @@ function install_sublime_3() {
 # Install apt packages in the list
 # Prompting each time 
 function install_apt_packages() {
-    install_packages="git python-dev vim byobu ack-grep bzr zsh"
+    install_packages="git python-dev vim byobu ack-grep bzr zsh curl"
 
     for package in ${install_packages}; do
         while true; do
@@ -44,6 +44,11 @@ function install_apt_packages() {
             esac
         done
     done
+}
+
+# Install oh my zsh
+function install_oh_my_zsh() {
+    wget --no-check-certificate http://install.ohmyz.sh -O - | sh
 }
 
 # Generate a new SSH key, to be copied into Github (at the very least)
@@ -81,7 +86,7 @@ function setup_user_config() {
     fi
 }
 
-run_functions="apt_always_yes install_chrome install_sublime_3 install_apt_packages setup_ssh_key setup_user_config"
+run_functions="apt_always_yes install_chrome install_sublime_3 install_apt_packages install_oh_my_zsh setup_ssh_key setup_user_config"
 
 for function_name in ${run_functions}; do
     while true; do
